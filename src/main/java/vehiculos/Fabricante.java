@@ -16,7 +16,7 @@ public class Fabricante {
 	public Pais getPais(){return pais;}
 	public void setPais(Pais x){this.pais = x;}
 	
-	public static String fabricaMayorVentas() {
+	public static Fabricante fabricaMayorVentas() {
 		return Vehiculo.fabricaMayorVentas();
 	}
 

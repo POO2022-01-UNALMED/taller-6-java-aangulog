@@ -11,7 +11,7 @@ public class Pais {
 	public String getNombre(){return nombre;}
 	public void setNombre(String x){this.nombre = x;}
 	
-	public static String paisMasVendedor() {
+	public static Pais paisMasVendedor() {
 		return Vehiculo.paisMasVendedor();
 	}
 }

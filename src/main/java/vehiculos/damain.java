@@ -28,8 +28,8 @@ public class damain {
 		new Camioneta("CC", 5, "Ford", 500, 150, f4, true);
 		new Automovil("NN", "Mac 100", 820, 20, f4, 4);
 		
-		System.out.println(Fabricante.fabricaMayorVentas());
-		System.out.println(Pais.paisMasVendedor());
+		System.out.println(Fabricante.fabricaMayorVentas().getNombre());
+		System.out.println(Pais.paisMasVendedor().getNombre());
 		System.out.println(Vehiculo.vehiculosPorTipo());
 
 	}

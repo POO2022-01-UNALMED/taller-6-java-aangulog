@@ -13,8 +13,8 @@ public class Vehiculo{
 	private String traccion;
 	private Fabricante fabricante;
 	
-	private static ArrayList<String> fabricantes=new ArrayList<String>();
-	private static ArrayList<String> paises=new ArrayList<String>();
+	private static ArrayList<Fabricante> fabricantes=new ArrayList<Fabricante>();
+	private static ArrayList<Pais> paises=new ArrayList<Pais>();
 	private static int CantidadVehiculos;
 	
 	public Vehiculo(String placa, int puertas, int velocidadMaxima, String nombre, int precio, int peso, String traccion, Fabricante fabricante){
@@ -28,8 +28,10 @@ public class Vehiculo{
 		this.traccion = traccion;
 		this.fabricante = fabricante;
 		Vehiculo.CantidadVehiculos = Vehiculo.CantidadVehiculos+1;
-		Vehiculo.fabricantes.add(fabricante.getNombre());
-		Vehiculo.paises.add(fabricante.getPais().getNombre());
+		//Vehiculo.fabricantes.add(fabricante.getNombre());
+		Vehiculo.fabricantes.add(fabricante);
+		//Vehiculo.paises.add(fabricante.getPais().getNombre());
+		Vehiculo.paises.add(fabricante.getPais());
 		
 	}
 
@@ -39,17 +41,17 @@ public class Vehiculo{
 			   +"\nCamiones: "+Camion.getCantidadCamiones();
 	}
 	
-	public static String paisMasVendedor() {
-		Map<String, Integer> map = new HashMap<>();
+	public static Pais paisMasVendedor() {
+		Map<Pais, Integer> map = new HashMap<>();
 		
-		for (String string: paises) {
+		for (Pais string: paises) {
 			Integer val = map.get(string);
 			map.put(string, val==null ? 1 : val+1);
 		}
 		
-		Entry<String, Integer> max = null;
+		Entry<Pais, Integer> max = null;
 		
-		for (Entry<String, Integer> e : map.entrySet()) {
+		for (Entry<Pais, Integer> e : map.entrySet()) {
 			if (max == null || e.getValue() > max.getValue())
 				max = e;
 		}
@@ -57,17 +59,17 @@ public class Vehiculo{
 		return max.getKey();
 	}
 	
-	public static String fabricaMayorVentas() {
-		Map<String, Integer> map = new HashMap<>();
+	public static Fabricante fabricaMayorVentas() {
+		Map<Fabricante, Integer> map = new HashMap<>();
 		
-		for (String string: fabricantes) {
+		for (Fabricante string: fabricantes) {
 			Integer val = map.get(string);
 			map.put(string, val==null ? 1 : val+1);
 		}
 		
-		Entry<String, Integer> max = null;
+		Entry<Fabricante, Integer> max = null;
 		
-		for (Entry<String, Integer> e : map.entrySet()) {
+		for (Entry<Fabricante, Integer> e : map.entrySet()) {
 			if (max == null || e.getValue() > max.getValue())
 				max = e;
 		}
